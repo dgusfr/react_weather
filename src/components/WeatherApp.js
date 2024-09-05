@@ -5,6 +5,7 @@ function WeatherApp() {
     <div>
       <header>
         <h1>Previsão do Tempo</h1>
+        <input type="text" placeholder="Digite o nome da cidade" />
       </header>
     </div>
   );
