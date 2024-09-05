@@ -25,12 +25,6 @@ Uma aplicação web que permite aos usuários visualizar a previsão do tempo at
     <img src="img/js.png" alt="Logo Linguagem" width="100"/>
   </div>
   <div style="margin-right: 20px; display: flex; justify-content: flex-start;">
-    <img src="img/html.png" alt="Logo Linguagem" width="100"/>
-  </div>
-  <div style="margin-right: 20px; display: flex; justify-content: flex-start;">
-    <img src="img/css.png" alt="Logo Linguagem" width="100"/>
-  </div>
-  <div style="margin-right: 20px; display: flex; justify-content: flex-start;">
     <img src="img/react.png" alt="Logo React" width="100"/>
   </div>
 </div>
@@ -39,7 +33,6 @@ Uma aplicação web que permite aos usuários visualizar a previsão do tempo at
 
 ![Em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=RED&style=for-the-badge)
 
-<!-- Altere para o status adequado quando o projeto estiver concluído -->
 <!-- ![Concluído](http://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=GREEN&style=for-the-badge) -->
 
 ## Descrição
