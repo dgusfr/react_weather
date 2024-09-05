@@ -13,6 +13,7 @@ function WeatherApp() {
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
+        <button onClick={handleSearch}>Buscar</button>
       </header>
     </div>
   );
