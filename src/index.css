@@ -16,3 +16,10 @@ input {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
