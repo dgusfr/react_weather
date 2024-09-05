@@ -18,4 +18,8 @@ function WeatherApp() {
   );
 }
 
+const handleSearch = () => {
+  console.log(`Buscando a previsão para: ${city}`);
+};
+
 export default WeatherApp;
