@@ -4,9 +4,9 @@ Uma aplicação web que permite aos usuários visualizar a previsão do tempo at
 
 ## Interface
 
-<div align="center">
+<!-- <div align="center">
   <img src="img/logo.png" alt="Imagem do Projeto" width="100">
-</div>
+</div> -->
 
 ## Sumário
 
