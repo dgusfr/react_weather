@@ -3,6 +3,7 @@ import { getWeatherByCity } from "../services/weatherService";
 
 function WeatherApp() {
   const [city, setCity] = useState("");
+  const [weatherData, setWeatherData] = useState(null);
 
   return (
     <div>
