@@ -8,6 +8,10 @@ function WeatherApp() {
   const [error, setError] = useState(null);
 
   const fetchWeather = async () => {
+    if (!city) {
+      setError("Por favor, insira o nome de uma cidade.");
+      return;
+    }
     setLoading(true);
     setWeatherData(null);
     try {
