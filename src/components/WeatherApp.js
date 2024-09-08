@@ -73,6 +73,10 @@ function WeatherApp() {
       )}
 
       {loading && <p>Carregando...</p>}
+
+      <button onClick={fetchWeather} disabled={loading}>
+        {loading ? "Buscando..." : "Buscar"}
+      </button>
     </div>
   );
 }
