@@ -28,7 +28,7 @@ const handleSearch = () => {
 const fetchWeather = async () => {
   try {
     const data = await getWeatherByCity(city);
-    console.log(data);
+    setWeatherData(data);
   } catch (error) {
     console.error("Erro ao buscar a previsão:", error.message);
   }
