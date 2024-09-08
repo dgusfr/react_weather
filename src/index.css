@@ -23,6 +23,12 @@ p {
   font-size: 16px;
 }
 
+p.error {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
 h2 {
   margin-bottom: 10px;
   font-size: 24px;
