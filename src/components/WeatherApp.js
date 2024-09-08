@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { getWeatherByCity } from "../services/weatherService";
 
 function WeatherApp() {
   const [city, setCity] = useState("");
