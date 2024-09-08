@@ -81,20 +81,20 @@ export default WeatherApp;
 
 ## Como Usar
 
-1. Clone este repositório:
+1.  Clone este repositório:
 
-   ```bash
-   git clone https://github.com/seu-usuario/nome-do-repositorio.git
+    ```bash
+    git clone https://github.com/seu-usuario/nome-do-repositorio.git
 
-   ```
+    ```
 
-2. Instale as dependências:
+2.  Instale as dependências:
 
-`npm install`
+         `npm install`
 
-3. Execute a aplicação:
+3.  Execute a aplicação:
 
-`npm start`
+        `npm start`
 
 Acesse a aplicação no navegador em http://localhost:3000.
 
