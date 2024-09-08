@@ -38,6 +38,7 @@ const fetchWeather = async () => {
     setError(null);
     const data = await getWeatherByCity(city);
     setWeatherData(data);
+    console.clear();
   } catch (error) {
     setError("Cidade não encontrada. Tente novamente.");
   }
