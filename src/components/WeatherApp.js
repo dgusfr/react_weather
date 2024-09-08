@@ -4,9 +4,11 @@ import { getWeatherByCity } from "../services/weatherService";
 function WeatherApp() {
   const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const fetchWeather = async () => {
+    setLoading(true);
     try {
       setError(null);
       const data = await getWeatherByCity(city);
@@ -14,6 +16,8 @@ function WeatherApp() {
       console.clear();
     } catch (error) {
       setError("Cidade não encontrada. Tente novamente.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -62,6 +66,8 @@ function WeatherApp() {
           <p>Condição: {weatherData.weather[0].description}</p>
         </div>
       )}
+
+      {loading && <p>Carregando...</p>}
     </div>
   );
 }
