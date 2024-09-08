@@ -40,6 +40,15 @@ function WeatherApp() {
           <p>Temperatura: {weatherData.main.temp}°C</p>
         </div>
       )}
+
+      {weatherData && (
+        <div>
+          <h2>{weatherData.name}</h2>
+          <p>Temperatura: {weatherData.main.temp}°C</p>
+          <p>Umidade: {weatherData.main.humidity}%</p>
+          <p>Condição: {weatherData.weather[0].description}</p>
+        </div>
+      )}
     </div>
   );
 }
