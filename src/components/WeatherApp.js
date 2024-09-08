@@ -9,6 +9,7 @@ function WeatherApp() {
 
   const fetchWeather = async () => {
     setLoading(true);
+    setWeatherData(null);
     try {
       setError(null);
       const data = await getWeatherByCity(city);
