@@ -35,11 +35,13 @@ const handleSearch = () => {
 
 const fetchWeather = async () => {
   try {
+    setError(null);
     const data = await getWeatherByCity(city);
     setWeatherData(data);
   } catch (error) {
-    console.error("Erro ao buscar a previsão:", error.message);
+    setError("Cidade não encontrada. Tente novamente.");
   }
 };
 
 export default WeatherApp;
+const [error, setError] = useState(null);
