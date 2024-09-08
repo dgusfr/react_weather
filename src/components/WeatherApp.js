@@ -4,6 +4,18 @@ import { getWeatherByCity } from "../services/weatherService";
 function WeatherApp() {
   const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState(null);
+  const [error, setError] = useState(null);
+
+  const fetchWeather = async () => {
+    try {
+      setError(null);
+      const data = await getWeatherByCity(city);
+      setWeatherData(data);
+      console.clear();
+    } catch (error) {
+      setError("Cidade não encontrada. Tente novamente.");
+    }
+  };
 
   return (
     <div>
@@ -17,32 +29,19 @@ function WeatherApp() {
         />
         <button onClick={fetchWeather}>Buscar</button>
       </header>
+
+      {/* Exibição de mensagem de erro */}
+      {error && <p>{error}</p>}
+
+      {/* Exibição dos dados de previsão */}
+      {weatherData && (
+        <div>
+          <h2>{weatherData.name}</h2>
+          <p>Temperatura: {weatherData.main.temp}°C</p>
+        </div>
+      )}
     </div>
   );
 }
-{
-  weatherData && (
-    <div>
-      <h2>{weatherData.name}</h2>
-      <p>Temperatura: {weatherData.main.temp}°C</p>
-    </div>
-  );
-}
-
-const handleSearch = () => {
-  console.log(`Buscando a previsão para: ${city}`);
-};
-
-const fetchWeather = async () => {
-  try {
-    setError(null);
-    const data = await getWeatherByCity(city);
-    setWeatherData(data);
-    console.clear();
-  } catch (error) {
-    setError("Cidade não encontrada. Tente novamente.");
-  }
-};
 
 export default WeatherApp;
-const [error, setError] = useState(null);
