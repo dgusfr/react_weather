@@ -20,6 +20,14 @@ function WeatherApp() {
     </div>
   );
 }
+{
+  weatherData && (
+    <div>
+      <h2>{weatherData.name}</h2>
+      <p>Temperatura: {weatherData.main.temp}°C</p>
+    </div>
+  );
+}
 
 const handleSearch = () => {
   console.log(`Buscando a previsão para: ${city}`);
