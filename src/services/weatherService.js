@@ -1,11 +1,9 @@
 import axios from "axios";
-
-const API_KEY = process.env.REACT_APP_API_KEY;
-const BASE_URL = "https://api.openweathermap.org/data/2.5";
+import { API_BASE_URL } from "../config";
 
 export const getWeatherByCity = async (city) => {
   try {
-    const response = await axios.get(`${BASE_URL}/weather`, {
+    const response = await axios.get(`${API_BASE_URL}/weather`, {
       params: {
         q: city,
         appid: API_KEY,
