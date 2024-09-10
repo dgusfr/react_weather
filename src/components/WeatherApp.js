@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { getWeatherByCity } from "../services/weatherService";
+import Loader from "./Loader";
 
 function WeatherApp() {
   const [city, setCity] = useState("");
@@ -92,6 +93,7 @@ function WeatherApp() {
           <p>Condição: {weatherData.weather[0].description}</p>
         </div>
       )}
+      {loading && <Loader />}
     </div>
   );
 }
