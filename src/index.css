@@ -83,3 +83,9 @@ button:disabled {
   font-weight: bold;
   margin-top: 10px;
 }
+
+p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
