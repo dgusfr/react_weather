@@ -70,3 +70,9 @@ button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
+
+.loader {
+  font-size: 18px;
+  color: #007bff;
+  font-weight: bold;
+}
