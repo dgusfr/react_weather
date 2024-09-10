@@ -2,7 +2,7 @@
 
 Uma aplicação web que permite aos usuários visualizar a previsão do tempo atual e dos próximos dias, baseada em sua localização ou em uma cidade específica, utilizando a API OpenWeather.
 
-<!-- ## Interface -->
+## Interface 
 
 <!-- <div align="center">
   <img src="img/logo.png" alt="Imagem do Projeto" width="100">
