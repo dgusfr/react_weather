@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { getWeatherByCity } from "../services/weatherService";
 import Loader from "./Loader";
+import ErrorMessage from "./ErrorMessage";
 
 function WeatherApp() {
   const [city, setCity] = useState("");
@@ -94,6 +95,8 @@ function WeatherApp() {
         </div>
       )}
       {loading && <Loader />}
+
+      {error && <ErrorMessage message={error} />}
     </div>
   );
 }
