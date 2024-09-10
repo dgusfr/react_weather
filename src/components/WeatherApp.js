@@ -3,6 +3,7 @@ import { getWeatherByCity } from "../services/weatherService";
 import Loader from "./Loader";
 import ErrorMessage from "./ErrorMessage";
 import CurrentDateTime from "./CurrentDateTime";
+import WeatherDetails from "./WeatherDetails";
 
 function WeatherApp() {
   const [city, setCity] = useState("");
@@ -62,57 +63,7 @@ function WeatherApp() {
         </div>
       )}
 
-      {weatherData && (
-        <div>
-          <h2>{weatherData.name}</h2>
-          <img
-            src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
-            alt={weatherData.weather[0].description}
-          />
-          <p>Temperatura: {weatherData.main.temp}°C</p>
-          <p>Umidade: {weatherData.main.humidity}%</p>
-          <p>Condição: {weatherData.weather[0].description}</p>
-        </div>
-      )}
-
-      {loading && <p>Carregando...</p>}
-
-      <button onClick={fetchWeather} disabled={loading}>
-        {loading ? "Buscando..." : "Buscar"}
-      </button>
-
-      {weatherData && (
-        <div>
-          <h2>
-            {weatherData.name}, {weatherData.sys.country}
-          </h2>
-          <img
-            src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
-            alt={weatherData.weather[0].description}
-          />
-          <p>Temperatura: {weatherData.main.temp}°C</p>
-          <p>Umidade: {weatherData.main.humidity}%</p>
-          <p>Condição: {weatherData.weather[0].description}</p>
-        </div>
-      )}
-      {loading && <Loader />}
-
-      {error && <ErrorMessage message={error} />}
-      {weatherData && (
-        <div>
-          <h2>
-            {weatherData.name}, {weatherData.sys.country}
-          </h2>
-          <img
-            src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
-            alt={weatherData.weather[0].description}
-          />
-          <p>Temperatura: {weatherData.main.temp}°C</p>
-          <p>Umidade: {weatherData.main.humidity}%</p>
-          <p>Condição: {weatherData.weather[0].description}</p>
-          <CurrentDateTime />
-        </div>
-      )}
+      {weatherData && <WeatherDetails weatherData={weatherData} />}
     </div>
   );
 }
