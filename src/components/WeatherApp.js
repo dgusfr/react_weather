@@ -17,7 +17,7 @@ function WeatherApp() {
       return;
     }
     setLoading(true);
-    setWeatherData(null);
+    setWeatherData(null); // Limpar dados antigos
     try {
       setError(null);
       const data = await getWeatherByCity(city);
@@ -40,30 +40,24 @@ function WeatherApp() {
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
-        <button onClick={fetchWeather}>Buscar</button>
+        <button onClick={fetchWeather} disabled={loading}>
+          {loading ? "Buscando..." : "Buscar"}
+        </button>
       </header>
 
+      {/* Exibição do estado de carregamento */}
+      {loading && <Loader />}
+
       {/* Exibição de mensagem de erro */}
-      {error && <p>{error}</p>}
+      {error && <ErrorMessage message={error} />}
 
       {/* Exibição dos dados de previsão */}
       {weatherData && (
         <div>
-          <h2>{weatherData.name}</h2>
-          <p>Temperatura: {weatherData.main.temp}°C</p>
+          <WeatherDetails weatherData={weatherData} />
+          <CurrentDateTime />
         </div>
       )}
-
-      {weatherData && (
-        <div>
-          <h2>{weatherData.name}</h2>
-          <p>Temperatura: {weatherData.main.temp}°C</p>
-          <p>Umidade: {weatherData.main.humidity}%</p>
-          <p>Condição: {weatherData.weather[0].description}</p>
-        </div>
-      )}
-
-      {weatherData && <WeatherDetails weatherData={weatherData} />}
     </div>
   );
 }
