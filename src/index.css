@@ -122,3 +122,8 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+.forecast-item:hover {
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
