@@ -89,3 +89,21 @@ p {
   font-size: 14px;
   color: #555;
 }
+
+.forecast-details {
+  margin-top: 20px;
+}
+
+.forecast-list {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.forecast-item {
+  text-align: center;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  width: 100px;
+}
