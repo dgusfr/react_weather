@@ -62,6 +62,8 @@ function WeatherApp() {
           <CurrentDateTime />
         </div>
       )}
+
+      {forecastData && <ForecastDetails forecastData={forecastData} />}
     </div>
   );
 }
