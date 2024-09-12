@@ -6,6 +6,7 @@ import CurrentDateTime from "./CurrentDateTime";
 import WeatherDetails from "./WeatherDetails";
 
 function WeatherApp() {
+  const [forecastData, setForecastData] = useState(null);
   const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(false);
