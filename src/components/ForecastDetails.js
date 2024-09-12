@@ -22,6 +22,7 @@ function ForecastDetails({ forecastData }) {
             />
           </div>
         ))}
+        {forecastData.list.length === 0 && <p>Nenhuma previsão disponível.</p>}
       </div>
     </div>
   );
