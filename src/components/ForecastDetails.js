@@ -5,7 +5,7 @@ function ForecastDetails({ forecastData }) {
     <div className="forecast-details">
       <h3>Previsão para os próximos dias</h3>
       <div className="forecast-list">
-        {forecastData.list.slice(0, 5).map((day, index) => (
+        {forecastData.list.slice(0, 3).map((day, index) => (
           <div key={index} className="forecast-item">
             <p>
               {new Date(day.dt_txt).toLocaleDateString("pt-BR", {
