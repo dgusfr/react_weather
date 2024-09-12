@@ -18,11 +18,14 @@ function WeatherApp() {
       return;
     }
     setLoading(true);
-    setWeatherData(null); // Limpar dados antigos
+    setWeatherData(null);
+    setForecastData(null);
     try {
       setError(null);
-      const data = await getWeatherByCity(city);
-      setWeatherData(data);
+      const weather = await getWeatherByCity(city);
+      const forecast = await getForecastByCity(city);
+      setWeatherData(weather);
+      setForecastData(forecast);
       console.clear();
     } catch (error) {
       setError("Cidade não encontrada. Tente novamente.");
