@@ -133,6 +133,24 @@ button:hover {
   animation: fadeIn 0.5s forwards;
 }
 
+.hourly-forecast {
+  margin-top: 20px;
+}
+
+.hourly-list {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.hourly-item {
+  text-align: center;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 8px;
+  width: 80px;
+}
+
 @keyframes fadeIn {
   to {
     opacity: 1;
