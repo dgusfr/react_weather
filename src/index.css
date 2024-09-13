@@ -156,3 +156,14 @@ button:hover {
     opacity: 1;
   }
 }
+@media (max-width: 600px) {
+  .hourly-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hourly-item {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+}
