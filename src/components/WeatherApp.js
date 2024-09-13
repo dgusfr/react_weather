@@ -14,15 +14,12 @@ function WeatherApp() {
   const [hourlyData, setHourlyData] = useState(null);
 
   const fetchWeather = async () => {
-    if (!city) {
-      setError("Por favor, insira o nome de uma cidade.");
-      return;
-    }
-    setLoading(true);
-    setWeatherData(null);
-    setForecastData(null);
-    setHourlyData(null);
+    const timeoutId = setTimeout(
+      () => setError("Conexão lenta. Tente novamente."),
+      10000
+    );
     try {
+      setLoading(true);
       setError(null);
       const weather = await getWeatherByCity(city);
       const forecast = await getForecastByCity(city);
@@ -30,11 +27,11 @@ function WeatherApp() {
       setWeatherData(weather);
       setForecastData(forecast);
       setHourlyData(hourly);
-      console.clear();
     } catch (error) {
       setError("Cidade não encontrada. Tente novamente.");
     } finally {
       setLoading(false);
+      clearTimeout(timeoutId);
     }
   };
 
