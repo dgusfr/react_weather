@@ -69,6 +69,10 @@ function WeatherApp() {
 
       {forecastData && <ForecastDetails forecastData={forecastData} />}
       {hourlyData && <HourlyForecast hourlyData={hourlyData} />}
+
+      <button onClick={fetchWeather} disabled={loading}>
+        {loading ? "Carregando..." : "Buscar"}
+      </button>
     </div>
   );
 }
