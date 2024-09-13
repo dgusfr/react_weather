@@ -21,12 +21,15 @@ function WeatherApp() {
     setLoading(true);
     setWeatherData(null);
     setForecastData(null);
+    setHourlyData(null);
     try {
       setError(null);
       const weather = await getWeatherByCity(city);
       const forecast = await getForecastByCity(city);
+      const hourly = await getHourlyForecastByCity(city);
       setWeatherData(weather);
       setForecastData(forecast);
+      setHourlyData(hourly);
       console.clear();
     } catch (error) {
       setError("Cidade não encontrada. Tente novamente.");
