@@ -68,6 +68,7 @@ function WeatherApp() {
       )}
 
       {forecastData && <ForecastDetails forecastData={forecastData} />}
+      {hourlyData && <HourlyForecast hourlyData={hourlyData} />}
     </div>
   );
 }
