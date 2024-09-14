@@ -16,12 +16,6 @@ function HourlyForecast({ hourlyData }) {
           </div>
         ))}
       </div>
-      <p>
-        {new Date(hour.dt_txt).toLocaleTimeString("pt-BR", {
-          hour: "2-digit",
-          minute: "2-digit",
-        })}
-      </p>
     </div>
   );
 }
