@@ -169,6 +169,11 @@ button:hover {
   width: 80px;
 }
 
+.error {
+  color: red;
+  font-weight: bold;
+}
+
 @keyframes fadeIn {
   to {
     opacity: 1;
