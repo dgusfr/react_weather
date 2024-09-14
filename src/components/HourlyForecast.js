@@ -7,7 +7,13 @@ function HourlyForecast({ hourlyData }) {
       <div className="hourly-list">
         {hourlyData.list.slice(0, 8).map((hour, index) => (
           <div key={index} className="hourly-item">
-            <p>{new Date(hour.dt_txt).getHours()}:00</p>
+            <p>
+              {new Date(hour.dt_txt).toLocaleTimeString("pt-BR", {
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
+            </p>
+
             <p>Temp: {hour.main.temp}°C</p>
             <img
               src={`http://openweathermap.org/img/wn/${hour.weather[0].icon}@2x.png`}
