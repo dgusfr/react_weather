@@ -69,6 +69,9 @@ function WeatherApp() {
       </button>
 
       {hourlyForecast && <HourlyForecast hourlyData={hourlyForecast} />}
+      {slowConnection && (
+        <p className="error">Conexão lenta. Tente novamente.</p>
+      )}
     </div>
   );
 }
