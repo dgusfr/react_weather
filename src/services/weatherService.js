@@ -1,11 +1,10 @@
-export const getHourlyForecastByCity = async (city) => {
+export const getHourlyForecast = async (city) => {
   try {
     const response = await axios.get(`${API_BASE_URL}/forecast`, {
       params: {
         q: city,
         appid: API_KEY,
         units: "metric",
-        cnt: 8, // Número de horas para a previsão
       },
     });
     return response.data;
