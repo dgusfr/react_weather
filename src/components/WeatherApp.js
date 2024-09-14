@@ -16,16 +16,11 @@ function WeatherApp() {
   const [slowConnection, setSlowConnection] = useState(false);
 
   const fetchWeather = async () => {
-    if (!city) {
-      setError("Por favor, insira o nome de uma cidade.");
-      return;
-    }
-    setLoading(true);
-    setWeatherData(null);
-    setForecastData(null);
-    setHourlyForecast(null);
+    const timeoutId = setTimeout(() => setSlowConnection(true), 5000);
     try {
+      setLoading(true);
       setError(null);
+      setSlowConnection(false);
       const weather = await getWeatherByCity(city);
       const forecast = await getForecastByCity(city);
       const hourly = await getHourlyForecast(city);
@@ -36,6 +31,7 @@ function WeatherApp() {
       setError("Cidade não encontrada. Tente novamente.");
     } finally {
       setLoading(false);
+      clearTimeout(timeoutId);
     }
   };
 
