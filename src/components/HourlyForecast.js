@@ -13,7 +13,6 @@ function HourlyForecast({ hourlyData }) {
                 minute: "2-digit",
               })}
             </p>
-
             <p>Temp: {hour.main.temp}°C</p>
             <img
               src={`http://openweathermap.org/img/wn/${hour.weather[0].icon}@2x.png`}
