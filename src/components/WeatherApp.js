@@ -12,6 +12,7 @@ function WeatherApp() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [hourlyData, setHourlyData] = useState(null);
+  const [hourlyForecast, setHourlyForecast] = useState(null);
 
   const fetchWeather = async () => {
     const timeoutId = setTimeout(
