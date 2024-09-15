@@ -97,6 +97,8 @@ function WeatherApp() {
           <p>Temperatura: {weatherData.main.temp}°C</p>
         </div>
       )}
+      {forecastLoading && <Loader />}
+      {hourlyLoading && <Loader />}
     </div>
   );
 }
