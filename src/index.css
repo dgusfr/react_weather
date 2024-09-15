@@ -181,13 +181,15 @@ button:hover {
 }
 
 @media (max-width: 600px) {
+  .forecast-list,
   .hourly-list {
     flex-direction: column;
     align-items: center;
   }
 
+  .forecast-item,
   .hourly-item {
-    margin-bottom: 10px;
     width: 100%;
+    margin-bottom: 10px;
   }
 }
