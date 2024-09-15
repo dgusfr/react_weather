@@ -7,8 +7,8 @@ import {
 import Loader from "./Loader";
 import ErrorMessage from "./ErrorMessage";
 import CurrentDateTime from "./CurrentDateTime";
-import ForecastDetails from "./ForecastDetails"; // Certifique-se de importar o componente
-import HourlyForecast from "./HourlyForecast"; // Certifique-se de importar o componente
+import ForecastDetails from "./ForecastDetails";
+import HourlyForecast from "./HourlyForecast";
 
 function WeatherApp() {
   const [city, setCity] = useState("");
