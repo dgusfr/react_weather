@@ -63,13 +63,10 @@ function WeatherApp() {
         </button>
       </header>
 
-      {/* Exibição do estado de carregamento */}
       {loading && <Loader />}
 
-      {/* Exibição de mensagem de erro */}
       {error && <ErrorMessage message={error} />}
 
-      {/* Exibição dos dados de previsão */}
       {weatherData && (
         <div>
           <h2>
@@ -82,10 +79,8 @@ function WeatherApp() {
         </div>
       )}
 
-      {/* Exibição da previsão estendida */}
       {forecastData && <ForecastDetails forecastData={forecastData} />}
 
-      {/* Exibição da previsão horária */}
       {hourlyForecast && <HourlyForecast hourlyData={hourlyForecast} />}
 
       {weatherData && (
