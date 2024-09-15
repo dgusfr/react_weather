@@ -94,6 +94,12 @@ function WeatherApp() {
           />
           <p>Temperatura: {weatherData.main.temp}°C</p>
         </div>
+        <img
+        src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
+        alt={`Condição do tempo: ${weatherData.weather[0].description}`}
+        aria-label={`Ícone de condição climática: ${weatherData.weather[0].description}`}
+      />
+      
       )}
     </div>
   );
