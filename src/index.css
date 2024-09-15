@@ -186,6 +186,22 @@ header {
   align-items: center;
 }
 
+input {
+  width: 100%;
+  max-width: 400px;
+}
+
+button {
+  width: 100%;
+  max-width: 150px;
+}
+
+@media (min-width: 600px) {
+  button {
+    margin-left: 10px;
+  }
+}
+
 @media (max-width: 600px) {
   .forecast-list,
   .hourly-list {
@@ -202,5 +218,9 @@ header {
   header {
     flex-direction: row;
     justify-content: space-between;
+  }
+
+  button {
+    margin-left: 10px;
   }
 }
