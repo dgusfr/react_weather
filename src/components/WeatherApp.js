@@ -26,6 +26,8 @@ function WeatherApp() {
       return;
     }
     setLoading(true);
+    setForecastLoading(true);
+    setHourlyLoading(true);
     setWeatherData(null);
     setForecastData(null);
     setHourlyForecast(null);
@@ -37,11 +39,12 @@ function WeatherApp() {
       setWeatherData(weather);
       setForecastData(forecast);
       setHourlyForecast(hourly);
-      console.clear();
     } catch (error) {
       setError("Cidade não encontrada. Tente novamente.");
     } finally {
       setLoading(false);
+      setForecastLoading(false);
+      setHourlyLoading(false);
     }
   };
 
