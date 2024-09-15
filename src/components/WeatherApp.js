@@ -17,6 +17,8 @@ function WeatherApp() {
   const [hourlyForecast, setHourlyForecast] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [forecastLoading, setForecastLoading] = useState(false);
+  const [hourlyLoading, setHourlyLoading] = useState(false);
 
   const fetchWeather = async () => {
     if (!city) {
