@@ -180,6 +180,12 @@ button:hover {
   }
 }
 
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 @media (max-width: 600px) {
   .forecast-list,
   .hourly-list {
@@ -191,5 +197,10 @@ button:hover {
   .hourly-item {
     width: 100%;
     margin-bottom: 10px;
+  }
+
+  header {
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
