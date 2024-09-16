@@ -1,24 +1,11 @@
 import React, { useState } from "react";
-import {
-  getWeatherByCity,
-  getForecastByCity,
-  getHourlyForecast,
-} from "../services/weatherService";
-import Loader from "./Loader";
-import ErrorMessage from "./ErrorMessage";
-import CurrentDateTime from "./CurrentDateTime";
-import ForecastDetails from "./ForecastDetails";
-import HourlyForecast from "./HourlyForecast";
+import { getWeatherByCity } from "../services/weatherService";
 
 function WeatherApp() {
   const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState(null);
-  const [forecastData, setForecastData] = useState(null);
-  const [hourlyForecast, setHourlyForecast] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [forecastLoading, setForecastLoading] = useState(false);
-  const [hourlyLoading, setHourlyLoading] = useState(false);
 
   const fetchWeather = async () => {
     if (!city) {
@@ -26,25 +13,15 @@ function WeatherApp() {
       return;
     }
     setLoading(true);
-    setForecastLoading(true);
-    setHourlyLoading(true);
     setWeatherData(null);
-    setForecastData(null);
-    setHourlyForecast(null);
     try {
       setError(null);
-      const weather = await getWeatherByCity(city);
-      const forecast = await getForecastByCity(city);
-      const hourly = await getHourlyForecast(city);
-      setWeatherData(weather);
-      setForecastData(forecast);
-      setHourlyForecast(hourly);
+      const data = await getWeatherByCity(city);
+      setWeatherData(data);
     } catch (error) {
-      setError("Cidade não encontrada. Tente novamente.");
+      setError("Erro ao buscar a previsão.");
     } finally {
       setLoading(false);
-      setForecastLoading(false);
-      setHourlyLoading(false);
     }
   };
 
@@ -62,41 +39,14 @@ function WeatherApp() {
           {loading ? "Carregando..." : "Buscar"}
         </button>
       </header>
-
-      {loading && <Loader />}
-
-      {error && <ErrorMessage message={error} />}
-
+      {error && <p>{error}</p>}
       {weatherData && (
         <div>
-          <h2>
-            {weatherData.name}, {weatherData.sys.country}
-          </h2>
+          <h2>{weatherData.name}</h2>
           <p>Temperatura: {weatherData.main.temp}°C</p>
-          <p>Umidade: {weatherData.main.humidity}%</p>
           <p>Condição: {weatherData.weather[0].description}</p>
-          <CurrentDateTime />
         </div>
       )}
-
-      {forecastData && <ForecastDetails forecastData={forecastData} />}
-
-      {hourlyForecast && <HourlyForecast hourlyData={hourlyForecast} />}
-
-      {weatherData && (
-        <div>
-          <h2>
-            {weatherData.name}, {weatherData.sys.country}
-          </h2>
-          <img
-            src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
-            alt={weatherData.weather[0].description}
-          />
-          <p>Temperatura: {weatherData.main.temp}°C</p>
-        </div>
-      )}
-      {forecastLoading && <Loader />}
-      {hourlyLoading && <Loader />}
     </div>
   );
 }
