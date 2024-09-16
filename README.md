@@ -2,7 +2,7 @@
 
 Uma aplicação web que permite aos usuários visualizar a previsão do tempo atual e dos próximos dias, baseada em sua localização ou em uma cidade específica, utilizando a API OpenWeather.
 
-## Interface 
+## Interface
 
 <!-- <div align="center">
   <img src="img/logo.png" alt="Imagem do Projeto" width="100">
@@ -78,6 +78,13 @@ function WeatherApp() {
 
 export default WeatherApp;
 ```
+
+# Previsão do Tempo
+
+## Configuração da API
+
+1. Obtenha uma chave de API no site [OpenWeather](https://home.openweathermap.org/users/sign_up).
+2. Adicione a chave no arquivo `.env` como:
 
 ## Como Usar
 

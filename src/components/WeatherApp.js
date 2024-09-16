@@ -14,12 +14,18 @@ function WeatherApp() {
     }
     setLoading(true);
     setWeatherData(null);
+    setError(null); // Resetar erro antes da nova busca
     try {
-      setError(null);
       const data = await getWeatherByCity(city);
       setWeatherData(data);
     } catch (error) {
-      setError("Erro ao buscar a previsão.");
+      if (error.response && error.response.status === 401) {
+        setError("Chave da API inválida. Verifique a chave e tente novamente.");
+      } else if (error.response && error.response.status === 404) {
+        setError("Cidade não encontrada. Verifique o nome e tente novamente.");
+      } else {
+        setError("Erro ao buscar a previsão. Tente novamente mais tarde.");
+      }
     } finally {
       setLoading(false);
     }
@@ -39,7 +45,11 @@ function WeatherApp() {
           {loading ? "Carregando..." : "Buscar"}
         </button>
       </header>
-      {error && <p>{error}</p>}
+
+      {/* Exibição de erro */}
+      {error && <p className="error">{error}</p>}
+
+      {/* Exibição dos dados da previsão */}
       {weatherData && (
         <div>
           <h2>{weatherData.name}</h2>
