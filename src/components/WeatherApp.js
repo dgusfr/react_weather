@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-import { getWeatherByCity } from "../services/weatherService";
+import {
+  getWeatherByCity,
+  getForecastByCity,
+} from "../services/weatherService";
 
 function WeatherApp() {
   const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState(null);
+  const [forecastData, setForecastData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -14,18 +18,15 @@ function WeatherApp() {
     }
     setLoading(true);
     setWeatherData(null);
-    setError(null); // Resetar erro antes da nova busca
+    setForecastData(null);
     try {
-      const data = await getWeatherByCity(city);
-      setWeatherData(data);
+      setError(null);
+      const weather = await getWeatherByCity(city);
+      const forecast = await getForecastByCity(city);
+      setWeatherData(weather);
+      setForecastData(forecast);
     } catch (error) {
-      if (error.response && error.response.status === 401) {
-        setError("Chave da API inválida. Verifique a chave e tente novamente.");
-      } else if (error.response && error.response.status === 404) {
-        setError("Cidade não encontrada. Verifique o nome e tente novamente.");
-      } else {
-        setError("Erro ao buscar a previsão. Tente novamente mais tarde.");
-      }
+      setError("Erro ao buscar a previsão.");
     } finally {
       setLoading(false);
     }
@@ -46,15 +47,50 @@ function WeatherApp() {
         </button>
       </header>
 
-      {/* Exibição de erro */}
       {error && <p className="error">{error}</p>}
 
-      {/* Exibição dos dados da previsão */}
+      {/* Exibição dos dados atuais */}
       {weatherData && (
         <div>
           <h2>{weatherData.name}</h2>
+          <p>
+            Coordenadas: Lat {weatherData.coord.lat}, Lon{" "}
+            {weatherData.coord.lon}
+          </p>
           <p>Temperatura: {weatherData.main.temp}°C</p>
-          <p>Condição: {weatherData.weather[0].description}</p>
+          <p>Sensação térmica: {weatherData.main.feels_like}°C</p>
+          <p>Temperatura mínima: {weatherData.main.temp_min}°C</p>
+          <p>Temperatura máxima: {weatherData.main.temp_max}°C</p>
+          <p>Pressão atmosférica: {weatherData.main.pressure} hPa</p>
+          <p>Umidade: {weatherData.main.humidity}%</p>
+          <p>Nuvens: {weatherData.clouds.all}% de cobertura</p>
+          {weatherData.rain && (
+            <>
+              <p>
+                Chuva na última 1h:{" "}
+                {weatherData.rain["1h"] ? weatherData.rain["1h"] : 0} mm
+              </p>
+              <p>
+                Chuva nas últimas 3h:{" "}
+                {weatherData.rain["3h"] ? weatherData.rain["3h"] : 0} mm
+              </p>
+            </>
+          )}
+          <p>Fuso horário: UTC {weatherData.timezone / 3600} horas</p>
+        </div>
+      )}
+
+      {/* Exibição da previsão para os próximos 5 dias */}
+      {forecastData && (
+        <div>
+          <h2>Previsão para os próximos dias</h2>
+          {forecastData.list.slice(0, 5).map((forecast, index) => (
+            <div key={index}>
+              <p>Data: {forecast.dt_txt}</p>
+              <p>Temperatura: {forecast.main.temp}°C</p>
+              <p>Condição: {forecast.weather[0].description}</p>
+            </div>
+          ))}
         </div>
       )}
     </div>
