@@ -12,6 +12,11 @@ function WeatherApp() {
   const [error, setError] = useState(null);
   const validateCity = (city) => /^[a-zA-Z\s]+$/.test(city.trim());
 
+  if (!validateCity(city)) {
+    setError("Por favor, insira o nome de uma cidade válida.");
+    return;
+  }
+
   const fetchWeather = async () => {
     if (!city) {
       setError("Por favor, insira o nome de uma cidade.");
