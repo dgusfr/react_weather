@@ -44,6 +44,7 @@ function WeatherApp() {
       }
     }
   };
+  setError("Erro de conexão. Tente novamente mais tarde.");
 
   return (
     <div>
