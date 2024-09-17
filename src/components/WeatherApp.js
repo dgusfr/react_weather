@@ -70,6 +70,7 @@ function WeatherApp() {
           <p>
             Coordenadas: Lat {weatherData.coord.lat}, Lon{" "}
             {weatherData.coord.lon}
+            {loading && <Loader />}
           </p>
           <p>Temperatura: {weatherData.main.temp}°C</p>
           <p>Sensação térmica: {weatherData.main.feels_like}°C</p>
