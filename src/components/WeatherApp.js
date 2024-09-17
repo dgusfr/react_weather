@@ -15,6 +15,7 @@ function WeatherApp() {
     () => setError("Conexão lenta. Tente novamente."),
     10000
   );
+  clearTimeout(timeoutId);
 
   if (!validateCity(city)) {
     setError("Por favor, insira o nome de uma cidade válida.");
