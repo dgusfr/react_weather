@@ -11,6 +11,10 @@ function WeatherApp() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const validateCity = (city) => /^[a-zA-Z\s]+$/.test(city.trim());
+  const timeoutId = setTimeout(
+    () => setError("Conexão lenta. Tente novamente."),
+    10000
+  );
 
   if (!validateCity(city)) {
     setError("Por favor, insira o nome de uma cidade válida.");
