@@ -79,6 +79,8 @@ function WeatherApp() {
           <p>Pressão atmosférica: {weatherData.main.pressure} hPa</p>
           <p>Umidade: {weatherData.main.humidity}%</p>
           <p>Nuvens: {weatherData.clouds.all}% de cobertura</p>
+          {error && <p className="error">{error}</p>}
+
           {weatherData.rain && (
             <>
               <p>
