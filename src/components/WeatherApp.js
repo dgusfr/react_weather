@@ -3,6 +3,7 @@ import {
   getWeatherByCity,
   getForecastByCity,
 } from "../services/weatherService";
+import Loader from "./Loader";
 
 function WeatherApp() {
   const [city, setCity] = useState("");
@@ -10,55 +11,50 @@ function WeatherApp() {
   const [forecastData, setForecastData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const validateCity = (city) => /^[a-zA-Z\s]+$/.test(city.trim());
-  const timeoutId = setTimeout(
-    () => setError("Conexão lenta. Tente novamente."),
-    10000
-  );
-  clearTimeout(timeoutId);
 
-  if (!validateCity(city)) {
-    setError("Por favor, insira o nome de uma cidade válida.");
-    return;
-  }
+  // Validação do nome da cidade
+  const validateCity = (city) => /^[a-zA-Z\s]+$/.test(city.trim());
 
   const fetchWeather = async () => {
-    if (!city) {
-      setError("Por favor, insira o nome de uma cidade.");
+    if (!city || !validateCity(city)) {
+      setError("Por favor, insira o nome de uma cidade válida.");
       return;
     }
+
     setLoading(true);
+    setError(null);
     setWeatherData(null);
     setForecastData(null);
+
+    const timeoutId = setTimeout(
+      () => setError("Conexão lenta. Tente novamente."),
+      10000
+    );
+
     try {
-      setError(null);
       const weather = await getWeatherByCity(city);
       const forecast = await getForecastByCity(city);
+      clearTimeout(timeoutId);
       setWeatherData(weather);
       setForecastData(forecast);
     } catch (error) {
-      setError("Erro ao buscar a previsão.");
+      clearTimeout(timeoutId);
+      handleErrors(error);
     } finally {
       setLoading(false);
     }
+  };
+
+  // Tratamento de erros
+  const handleErrors = (error) => {
     if (error.response && error.response.status === 404) {
       setError("Cidade não encontrada. Verifique o nome e tente novamente.");
-
-      if (error.response && error.response.status === 401) {
-        setError("Chave da API inválida. Contate o suporte.");
-      }
+    } else if (error.response && error.response.status === 401) {
+      setError("Chave da API inválida. Contate o suporte.");
+    } else {
+      setError("Erro de conexão. Tente novamente mais tarde.");
     }
-    const handleErrors = (error) => {
-      if (error.response && error.response.status === 404) {
-        setError("Cidade não encontrada.");
-      } else if (error.response && error.response.status === 401) {
-        setError("Chave da API inválida.");
-      } else {
-        setError("Erro de conexão.");
-      }
-    };
   };
-  setError("Erro de conexão. Tente novamente mais tarde.");
 
   return (
     <div>
@@ -75,7 +71,11 @@ function WeatherApp() {
         </button>
       </header>
 
+      {/* Exibição de mensagem de erro */}
       {error && <p className="error">{error}</p>}
+
+      {/* Exibição do loader durante a busca */}
+      {loading && <Loader />}
 
       {/* Exibição dos dados atuais */}
       {weatherData && (
@@ -84,7 +84,6 @@ function WeatherApp() {
           <p>
             Coordenadas: Lat {weatherData.coord.lat}, Lon{" "}
             {weatherData.coord.lon}
-            {loading && <Loader />}
           </p>
           <p>Temperatura: {weatherData.main.temp}°C</p>
           <p>Sensação térmica: {weatherData.main.feels_like}°C</p>
@@ -93,8 +92,6 @@ function WeatherApp() {
           <p>Pressão atmosférica: {weatherData.main.pressure} hPa</p>
           <p>Umidade: {weatherData.main.humidity}%</p>
           <p>Nuvens: {weatherData.clouds.all}% de cobertura</p>
-          {error && <p className="error">{error}</p>}
-
           {weatherData.rain && (
             <>
               <p>
