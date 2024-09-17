@@ -38,6 +38,10 @@ function WeatherApp() {
     }
     if (error.response && error.response.status === 404) {
       setError("Cidade não encontrada. Verifique o nome e tente novamente.");
+
+      if (error.response && error.response.status === 401) {
+        setError("Chave da API inválida. Contate o suporte.");
+      }
     }
   };
 
