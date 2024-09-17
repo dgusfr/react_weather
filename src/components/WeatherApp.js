@@ -10,6 +10,7 @@ function WeatherApp() {
   const [forecastData, setForecastData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const validateCity = (city) => /^[a-zA-Z\s]+$/.test(city.trim());
 
   const fetchWeather = async () => {
     if (!city) {
