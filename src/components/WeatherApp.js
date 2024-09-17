@@ -48,6 +48,15 @@ function WeatherApp() {
         setError("Chave da API inválida. Contate o suporte.");
       }
     }
+    const handleErrors = (error) => {
+      if (error.response && error.response.status === 404) {
+        setError("Cidade não encontrada.");
+      } else if (error.response && error.response.status === 401) {
+        setError("Chave da API inválida.");
+      } else {
+        setError("Erro de conexão.");
+      }
+    };
   };
   setError("Erro de conexão. Tente novamente mais tarde.");
 
