@@ -36,6 +36,9 @@ function WeatherApp() {
     } finally {
       setLoading(false);
     }
+    if (error.response && error.response.status === 404) {
+      setError("Cidade não encontrada. Verifique o nome e tente novamente.");
+    }
   };
 
   return (
