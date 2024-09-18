@@ -35,6 +35,25 @@ function WeatherApp() {
     }
   };
 
+  const translateWeatherDescription = (description) => {
+    const translations = {
+      "clear sky": "céu limpo",
+      "few clouds": "poucas nuvens",
+      "scattered clouds": "nuvens dispersas",
+      "broken clouds": "nuvens quebradas",
+      "shower rain": "chuva de pancada",
+      rain: "chuva",
+      "light rain": "chuva leve",
+      "moderate rain": "chuva moderada",
+      "heavy rain": "chuva forte",
+      thunderstorm: "trovoada",
+      snow: "neve",
+      mist: "névoa",
+    };
+
+    return translations[description] || description;
+  };
+
   return (
     <div className="weather-card">
       <header>
@@ -60,7 +79,9 @@ function WeatherApp() {
             {weatherData.name} - {weatherData.sys.country}
           </h2>
           <p>{new Date().toLocaleTimeString()}</p>
-          <p>{weatherData.weather[0].description}</p>
+          <p>
+            {translateWeatherDescription(weatherData.weather[0].description)}
+          </p>
           <div className="weather-details">
             <p>Humidade: {weatherData.main.humidity}%</p>
             <p>Vento: {weatherData.wind.speed} km/h</p>
@@ -86,8 +107,9 @@ function WeatherApp() {
               <p>
                 {forecast.main.temp_min}° / {forecast.main.temp_max}°
               </p>
-              <p>Chuva: {Math.round(forecast.pop * 100)}%</p>{" "}
-              {/* Exibindo a probabilidade de chuva */}
+              <p>
+                {translateWeatherDescription(forecast.weather[0].description)}
+              </p>
             </div>
           ))}
         </div>
