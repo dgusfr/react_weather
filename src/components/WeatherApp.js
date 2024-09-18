@@ -27,7 +27,13 @@ function WeatherApp() {
       const weather = await getWeatherByCity(city);
       const forecast = await getForecastByCity(city);
       setWeatherData(weather);
-      setForecastData(forecast);
+
+      // Filtro para selecionar apenas 1 previsão por dia (exemplo: previsão de meio-dia)
+      const filteredForecast = forecast.list.filter((forecastItem) => {
+        return forecastItem.dt_txt.includes("12:00:00");
+      });
+
+      setForecastData(filteredForecast);
     } catch (error) {
       setError("Erro ao buscar a previsão.");
     } finally {
@@ -93,7 +99,7 @@ function WeatherApp() {
       {/* Previsão para os próximos 5 dias */}
       {forecastData && (
         <div className="forecast-container">
-          {forecastData.list.slice(0, 5).map((forecast, index) => (
+          {forecastData.slice(0, 5).map((forecast, index) => (
             <div key={index} className="forecast-card">
               <h3>
                 {new Date(forecast.dt_txt).toLocaleDateString("pt-BR", {
