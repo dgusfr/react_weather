@@ -60,6 +60,15 @@ function WeatherApp() {
     return translations[description] || description;
   };
 
+  const getRainInfo = (forecast) => {
+    if (forecast.rain && forecast.rain["3h"]) {
+      return `Chuva: ${forecast.rain["3h"]} mm nas últimas 3 horas`;
+    } else if (forecast.rain && forecast.rain["1h"]) {
+      return `Chuva: ${forecast.rain["1h"]} mm na última hora`;
+    }
+    return "Sem precipitação";
+  };
+
   return (
     <div className="weather-card">
       <header>
@@ -116,6 +125,8 @@ function WeatherApp() {
               <p>
                 {translateWeatherDescription(forecast.weather[0].description)}
               </p>
+              <p>{getRainInfo(forecast)}</p>{" "}
+              {/* Exibe informações de chuva, se houver */}
             </div>
           ))}
         </div>
