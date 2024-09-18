@@ -86,6 +86,8 @@ function WeatherApp() {
               <p>
                 {forecast.main.temp_min}° / {forecast.main.temp_max}°
               </p>
+              <p>Chuva: {Math.round(forecast.pop * 100)}%</p>{" "}
+              {/* Exibindo a probabilidade de chuva */}
             </div>
           ))}
         </div>
