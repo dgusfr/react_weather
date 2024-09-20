@@ -1,0 +1,17 @@
+.hourlyForecast {
+  margin-top: 20px;
+}
+
+.hourlyList {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.hourlyItem {
+  text-align: center;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 8px;
+  width: 80px;
+}
