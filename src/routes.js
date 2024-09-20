@@ -1,15 +1,15 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import WeatherApp from "./Components/WeatherApp/WeatherApp";
 
-function Routes() {
+function AppRoutes() {
   return (
     <Router>
-      <Switch>
-        <Route exact path="/" component={WeatherApp} />
-      </Switch>
+      <Routes>
+        <Route path="/" element={<WeatherApp />} />
+      </Routes>
     </Router>
   );
 }
 
-export default Routes;
+export default AppRoutes;

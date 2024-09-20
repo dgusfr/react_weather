@@ -3,7 +3,7 @@ import {
   getWeatherByCity,
   getForecastByCity,
 } from "../../services/weatherService";
-import Loader from "../Loader";
+import Loader from "../Loader/Loader";
 import styles from "./WeatherApp.module.css";
 
 function WeatherApp() {
