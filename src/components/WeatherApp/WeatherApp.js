@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import {
   getWeatherByCity,
   getForecastByCity,
-} from "../services/weatherService";
-import Loader from "./Loader";
+} from "../../services/weatherService";
+import Loader from "../Loader";
 
 function WeatherApp() {
   const [city, setCity] = useState("");
