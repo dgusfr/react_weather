@@ -1,0 +1,11 @@
+.weatherDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.detailItem {
+  font-size: 14px;
+  color: #555;
+}
