@@ -1,0 +1,13 @@
+.forecastDetails {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.detailItem {
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+}
