@@ -4,6 +4,7 @@ import {
   getForecastByCity,
 } from "../../services/weatherService";
 import Loader from "../Loader";
+import styles from "./WeatherApp.module.css";
 
 function WeatherApp() {
   const [city, setCity] = useState("");
@@ -76,21 +77,26 @@ function WeatherApp() {
   };
 
   return (
-    <div className="weather-card">
+    <div className={styles.weatherCard}>
       <header>
         <h1>Previsão do Tempo</h1>
         <input
           type="text"
+          className={styles.input}
           placeholder="Digite o nome da cidade"
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
-        <button onClick={fetchWeather} disabled={loading || !city}>
+        <button
+          onClick={fetchWeather}
+          disabled={loading || !city}
+          className={styles.button}
+        >
           {loading ? "Carregando..." : "Buscar"}
         </button>
       </header>
 
-      {error && <p className="error">{error}</p>}
+      {error && <p className={styles.error}>{error}</p>}
       {loading && <Loader />}
 
       {/* Histórico de Cidades Pesquisadas */}
@@ -127,9 +133,9 @@ function WeatherApp() {
 
       {/* Previsão para os próximos 5 dias */}
       {forecastData && (
-        <div className="forecast-container">
+        <div className={styles.forecastContainer}>
           {forecastData.slice(0, 5).map((forecast, index) => (
-            <div key={index} className="forecast-card">
+            <div key={index} className={styles.forecastCard}>
               <h3>
                 {new Date(forecast.dt_txt).toLocaleDateString("pt-BR", {
                   weekday: "long",
