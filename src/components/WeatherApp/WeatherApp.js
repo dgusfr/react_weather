@@ -4,6 +4,7 @@ import {
   getForecastByCity,
 } from "../../services/weatherService";
 import Loader from "../Loader/Loader";
+import Footer from "../Footer/Footer";
 import styles from "./WeatherApp.module.css";
 
 function WeatherApp() {
@@ -77,86 +78,91 @@ function WeatherApp() {
   };
 
   return (
-    <div className={styles.weatherCard}>
-      <header>
-        <h1>Previsão do Tempo</h1>
-        <input
-          type="text"
-          className={styles.input}
-          placeholder="Digite o nome da cidade"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-        />
-        <button
-          onClick={fetchWeather}
-          disabled={loading || !city}
-          className={styles.button}
-        >
-          {loading ? "Carregando..." : "Buscar"}
-        </button>
-      </header>
+    <div className={styles.body}>
+      <div className={styles.weatherCard}>
+        <header>
+          <h1>Previsão do Tempo</h1>
+          <input
+            type="text"
+            className={styles.input}
+            placeholder="Digite o nome da cidade"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+          />
+          <button
+            onClick={fetchWeather}
+            disabled={loading || !city}
+            className={styles.button}
+          >
+            {loading ? "Carregando..." : "Buscar"}
+          </button>
+        </header>
 
-      {error && <p className={styles.error}>{error}</p>}
-      {loading && <Loader />}
+        {error && <p className={styles.error}>{error}</p>}
+        {loading && <Loader />}
 
-      {/* Histórico de Cidades Pesquisadas */}
-      {cityHistory.length > 0 && (
-        <div className="city-history">
-          <h2>Histórico de Cidades</h2>
-          <ul>
-            {cityHistory.map((cityItem, index) => (
-              <li key={index} onClick={() => setCity(cityItem)}>
-                {cityItem}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {/* Previsão Atual */}
-      {weatherData && (
-        <div className="weather-current">
-          <h2>
-            {weatherData.name} - {weatherData.sys.country}
-          </h2>
-          <p>{new Date().toLocaleTimeString()}</p>
-          <p>
-            {translateWeatherDescription(weatherData.weather[0].description)}
-          </p>
-          <div className="weather-details">
-            <p>Humidade: {weatherData.main.humidity}%</p>
-            <p>Vento: {weatherData.wind.speed} km/h</p>
-            <p>Sensação térmica: {weatherData.main.feels_like}°C</p>
+        {/* Histórico de Cidades Pesquisadas */}
+        {cityHistory.length > 0 && (
+          <div className={styles.cityHistory}>
+            <h2>Histórico de Cidades</h2>
+            <ul>
+              {cityHistory.map((cityItem, index) => (
+                <li key={index} onClick={() => setCity(cityItem)}>
+                  {cityItem}
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
-      )}
+        )}
 
-      {/* Previsão para os próximos 5 dias */}
-      {forecastData && (
-        <div className={styles.forecastContainer}>
-          {forecastData.slice(0, 5).map((forecast, index) => (
-            <div key={index} className={styles.forecastCard}>
-              <h3>
-                {new Date(forecast.dt_txt).toLocaleDateString("pt-BR", {
-                  weekday: "long",
-                })}
-              </h3>
-              <img
-                src={`http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png`}
-                alt={forecast.weather[0].description}
-              />
-              <p>
-                {forecast.main.temp_min}° / {forecast.main.temp_max}°
-              </p>
-              <p>
-                {translateWeatherDescription(forecast.weather[0].description)}
-              </p>
-              <p>{getRainInfo(forecast)}</p>{" "}
-              {/* Exibe informações de chuva, se houver */}
+        {/* Previsão Atual */}
+        {weatherData && (
+          <div className={styles.weatherCurrent}>
+            <h2>
+              {weatherData.name} - {weatherData.sys.country}
+            </h2>
+            <p>{new Date().toLocaleTimeString()}</p>
+            <p>
+              {translateWeatherDescription(weatherData.weather[0].description)}
+            </p>
+            <div className={styles.weatherDetails}>
+              <p>Humidade: {weatherData.main.humidity}%</p>
+              <p>Vento: {weatherData.wind.speed} km/h</p>
+              <p>Sensação térmica: {weatherData.main.feels_like}°C</p>
             </div>
-          ))}
-        </div>
-      )}
+          </div>
+        )}
+
+        {/* Previsão para os próximos 5 dias */}
+        {forecastData && (
+          <div className={styles.forecastContainer}>
+            {forecastData.slice(0, 5).map((forecast, index) => (
+              <div key={index} className={styles.forecastCard}>
+                <h3>
+                  {new Date(forecast.dt_txt).toLocaleDateString("pt-BR", {
+                    weekday: "long",
+                  })}
+                </h3>
+                <img
+                  src={`http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png`}
+                  alt={forecast.weather[0].description}
+                />
+                <p>
+                  {forecast.main.temp_min}° / {forecast.main.temp_max}°
+                </p>
+                <p>
+                  {translateWeatherDescription(forecast.weather[0].description)}
+                </p>
+                <p>{getRainInfo(forecast)}</p>{" "}
+                {/* Exibe informações de chuva, se houver */}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Footer adicionado */}
+      <Footer />
     </div>
   );
 }

@@ -12,6 +12,14 @@
   margin-top: 50px;
 }
 
+.body {
+  font-family: Arial, sans-serif;
+  background-image: url("../../../img/background.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
 .input {
   width: 80%;
   padding: 10px;
@@ -34,6 +42,7 @@
   background-color: #218838;
 }
 
+/* Animação nos Cards */
 .forecastCard {
   transition: transform 0.3s ease;
 }
@@ -42,6 +51,7 @@
   transform: scale(1.05);
 }
 
+/* Layout dos cards menores */
 .forecastContainer {
   display: flex;
   justify-content: space-between;
@@ -73,6 +83,7 @@
   font-size: 14px;
 }
 
+/* Responsividade */
 @media (max-width: 768px) {
   .forecastContainer {
     flex-direction: column;
@@ -85,6 +96,7 @@
   }
 }
 
+/* Estilos adicionais */
 .error {
   color: red;
   font-weight: bold;
