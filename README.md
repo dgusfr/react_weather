@@ -81,6 +81,14 @@ export default WeatherApp;
 
 # Previsão do Tempo
 
+Estrutura:
+
+`index.js`: É o ponto de entrada do aplicativo. Este arquivo normalmente importa o App.js e monta o React no DOM.
+
+`App.js`: É o componente principal que contém a lógica e a estrutura do aplicativo. Este componente é normalmente importado por index.js.
+
+`routes.js`: Se você deseja separar a lógica de roteamento do restante do código do aplicativo, você pode criar um routes.js para conter apenas as configurações de rotas e importá-lo no App.js.
+
 ## Configuração da API
 
 1. Obtenha uma chave de API no site [OpenWeather](https://home.openweathermap.org/users/sign_up).
