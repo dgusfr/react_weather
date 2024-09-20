@@ -1,12 +1,10 @@
 import React from "react";
-import WeatherApp from "./components/WeatherApp";
-import Footer from "./components/Footer";
+import Routes from "./routes";
 
 function App() {
   return (
-    <div className="App">
-      <WeatherApp />
-      <Footer />
+    <div>
+      <Routes />
     </div>
   );
 }
