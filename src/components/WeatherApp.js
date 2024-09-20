@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   getWeatherByCity,
   getForecastByCity,
@@ -11,6 +11,7 @@ function WeatherApp() {
   const [forecastData, setForecastData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [cityHistory, setCityHistory] = useState([]);
 
   const fetchWeather = async () => {
     if (!city) {
@@ -34,11 +35,16 @@ function WeatherApp() {
       });
 
       setForecastData(filteredForecast);
+      addToHistory(city); // Adicionar cidade ao histórico
     } catch (error) {
       setError("Erro ao buscar a previsão.");
     } finally {
       setLoading(false);
     }
+  };
+
+  const addToHistory = (city) => {
+    setCityHistory([city, ...cityHistory.filter((c) => c !== city)]);
   };
 
   const translateWeatherDescription = (description) => {
@@ -79,13 +85,27 @@ function WeatherApp() {
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
-        <button onClick={fetchWeather} disabled={loading}>
+        <button onClick={fetchWeather} disabled={loading || !city}>
           {loading ? "Carregando..." : "Buscar"}
         </button>
       </header>
 
       {error && <p className="error">{error}</p>}
       {loading && <Loader />}
+
+      {/* Histórico de Cidades Pesquisadas */}
+      {cityHistory.length > 0 && (
+        <div className="city-history">
+          <h2>Histórico de Cidades</h2>
+          <ul>
+            {cityHistory.map((cityItem, index) => (
+              <li key={index} onClick={() => setCity(cityItem)}>
+                {cityItem}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {/* Previsão Atual */}
       {weatherData && (

@@ -6,7 +6,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-image: url("/img/background.jpg");
+  background-image: url("/path-to-your-image"); /* Substitua pelo caminho da sua imagem */
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -53,6 +53,15 @@ button {
 
 button:hover {
   background-color: #218838;
+}
+
+/* Animação nos Cards */
+.forecast-card {
+  transition: transform 0.3s ease;
+}
+
+.forecast-card:hover {
+  transform: scale(1.05);
 }
 
 /* Layout dos cards menores */
@@ -219,24 +228,12 @@ button:hover {
   background-color: #0056b3;
 }
 
-/* Estilos para o footer */
 footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
   text-align: center;
   padding: 10px;
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.85
-  ); /* Fundo com leve transparência */
+  background-color: #f9f9f9;
   border-top: 1px solid #ccc;
-  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
-  font-size: 14px;
-  z-index: 10;
+  margin-top: 20px;
 }
 
 div {
