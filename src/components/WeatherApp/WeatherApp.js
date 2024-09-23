@@ -77,7 +77,8 @@ function WeatherApp() {
   };
 
   return (
-    <div className={styles.body}>
+    <div className={styles.container}>
+      {" "}
       <div className={styles.weatherCard}>
         <header>
           <h1>Previsão do Tempo</h1>
@@ -155,7 +156,6 @@ function WeatherApp() {
           </div>
         )}
       </div>
-
       <Footer />
     </div>
   );
