@@ -31,13 +31,12 @@ function WeatherApp() {
       const forecast = await getForecastByCity(city);
       setWeatherData(weather);
 
-      // Filtro para selecionar apenas 1 previsão por dia (exemplo: previsão de meio-dia)
       const filteredForecast = forecast.list.filter((forecastItem) => {
         return forecastItem.dt_txt.includes("12:00:00");
       });
 
       setForecastData(filteredForecast);
-      addToHistory(city); // Adicionar cidade ao histórico
+      addToHistory(city);
     } catch (error) {
       setError("Erro ao buscar a previsão.");
     } finally {
@@ -101,7 +100,6 @@ function WeatherApp() {
         {error && <p className={styles.error}>{error}</p>}
         {loading && <Loader />}
 
-        {/* Histórico de Cidades Pesquisadas */}
         {cityHistory.length > 0 && (
           <div className={styles.cityHistory}>
             <h2>Histórico de Cidades</h2>
@@ -115,7 +113,6 @@ function WeatherApp() {
           </div>
         )}
 
-        {/* Previsão Atual */}
         {weatherData && (
           <div className={styles.weatherCurrent}>
             <h2>
@@ -133,7 +130,6 @@ function WeatherApp() {
           </div>
         )}
 
-        {/* Previsão para os próximos 5 dias */}
         {forecastData && (
           <div className={styles.forecastContainer}>
             {forecastData.slice(0, 5).map((forecast, index) => (
@@ -154,14 +150,12 @@ function WeatherApp() {
                   {translateWeatherDescription(forecast.weather[0].description)}
                 </p>
                 <p>{getRainInfo(forecast)}</p>{" "}
-                {/* Exibe informações de chuva, se houver */}
               </div>
             ))}
           </div>
         )}
       </div>
 
-      {/* Footer adicionado */}
       <Footer />
     </div>
   );
