@@ -76,7 +76,7 @@ function WeatherApp() {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.bory}>
       {" "}
       <div className={styles.weatherCard}>
         <header>
