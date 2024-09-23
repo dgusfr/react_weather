@@ -4,7 +4,6 @@ import {
   getForecastByCity,
 } from "../../services/weatherService";
 import Loader from "../Loader/Loader";
-import Footer from "../Footer/Footer";
 import styles from "./WeatherApp.module.css";
 
 function WeatherApp() {
@@ -156,7 +155,6 @@ function WeatherApp() {
           </div>
         )}
       </div>
-      <Footer />
     </div>
   );
 }
