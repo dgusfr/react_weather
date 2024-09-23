@@ -150,30 +150,32 @@ O usuário, ao acessar a nossa aplicação, é direcionado para a página Home. 
 1. Obtenha uma chave de API no site [OpenWeather](https://home.openweathermap.org/users/sign_up).
 2. Adicione a chave no arquivo `.env`
 
-## Estrura
+# Estrutura do Projeto
 
+```plaintext
 src/
 |-- components/
-| |-- Loader/
-| | |-- Loader.js
-| | |-- Loader.module.css
-| |-- ForecastDetails/
-| | |-- ForecastDetails.js
-| | |-- ForecastDetails.module.css
-| |-- HourlyForecast/
-| | |-- HourlyForecast.js
-| | |-- HourlyForecast.module.css
+|   |-- Loader/
+|   |   |-- Loader.js
+|   |   |-- Loader.module.css
+|   |-- ForecastDetails/
+|   |   |-- ForecastDetails.js
+|   |   |-- ForecastDetails.module.css
+|   |-- HourlyForecast/
+|   |   |-- HourlyForecast.js
+|   |   |-- HourlyForecast.module.css
 |
 |-- pages/
-| |-- WeatherApp/
-| | |-- WeatherApp.js
-| | |-- WeatherApp.module.css
+|   |-- WeatherApp/
+|   |   |-- WeatherApp.js
+|   |   |-- WeatherApp.module.css
 |
 |-- services/
-| |-- weatherService.js
+|   |-- weatherService.js
 |
 |-- App.js
 |-- index.js
+```
 
 ## Como Usar
 
@@ -197,3 +199,7 @@ Acesse a aplicação no navegador em http://localhost:3000.
 # Autor
 
 Desenvolvido por Diego Franco.
+
+```
+
+```
