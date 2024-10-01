@@ -87,6 +87,7 @@
   margin: 5px 0;
   font-size: 14px;
   animation: fadeIn 0.5s ease-in-out;
+  font-family: "Roboto", sans-serif;
 }
 
 .cityHistory {
