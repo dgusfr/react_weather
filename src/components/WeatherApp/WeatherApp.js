@@ -87,6 +87,7 @@ function WeatherApp() {
             placeholder="Digite o nome da cidade"
             value={city}
             onChange={(e) => setCity(e.target.value)}
+            aria-label="Digite o nome da cidade"
           />
           <button
             onClick={fetchWeather}
