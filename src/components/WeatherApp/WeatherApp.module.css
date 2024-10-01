@@ -72,6 +72,11 @@
   font-size: 16px;
 }
 
+.forecast h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
 .forecastCard img {
   width: 40px;
   height: 40px;
