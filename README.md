@@ -1,4 +1,4 @@
-# Aplicação de Previsão do Tempo
+# Previsão do Tempo
 
 Uma aplicação web que permite aos usuários visualizar a previsão do tempo atual e dos próximos dias, baseada em sua localização ou em uma cidade específica, utilizando a API OpenWeather.
 
