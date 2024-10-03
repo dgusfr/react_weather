@@ -206,6 +206,3 @@ Acesse a aplicação no navegador em http://localhost:3000.
 # Autor
 
 Desenvolvido por Diego Franco.
-
-```
-
