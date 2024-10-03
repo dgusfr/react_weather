@@ -1,6 +1,8 @@
 # Previsão do Tempo
 
-Uma aplicação web que permite aos usuários visualizar a previsão do tempo atual e dos próximos dias, baseada em sua localização ou em uma cidade específica, utilizando a API da OpenWeather.
+Uma aplicação web que permite aos usuários visualizar a previsão do tempo atual e dos próximos dias.
+
+A previsão é baseada em sua localização ou em uma cidade específica, utilizando a API da OpenWeather.
 
 ## Interface
 
