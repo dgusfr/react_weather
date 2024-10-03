@@ -84,7 +84,9 @@ export default WeatherApp;
 
 # **Sobre o React Weather**
 
-O usuário, ao acessar a nossa aplicação, é direcionado para a página Home. Nesta página, é renderizado um card onde ele pode digitar o nome da cidade para a qual deseja obter a previsão do tempo. Ao clicar no botão "Buscar", as informações sobre o clima atual da cidade, bem como a previsão para os próximos dias, são apresentadas ao usuário de forma clara e organizada.
+O usuário, ao acessar a nossa aplicação, é direcionado para a página Home. Nesta página, é renderizado um card onde ele pode digitar o nome da cidade para a qual deseja obter a previsão do tempo. 
+
+Ao clicar no botão "Buscar", as informações sobre o clima atual da cidade, bem como a previsão para os próximos dias, são apresentadas ao usuário de forma clara e organizada.
 
 ## **Específico:**
 
