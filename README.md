@@ -37,7 +37,9 @@ Uma aplicação web que permite aos usuários visualizar a previsão do tempo at
 
 ## Descrição
 
-Este projeto é uma aplicação de previsão do tempo que permite ao usuário pesquisar o clima de qualquer cidade e obter as previsões dos próximos dias. A aplicação utiliza a API OpenWeather para obter dados meteorológicos em tempo real.
+Este projeto é uma aplicação de previsão do tempo que permite ao usuário pesquisar o clima de qualquer cidade e obter as previsões dos próximos dias. 
+
+A aplicação utiliza a API OpenWeather para obter dados meteorológicos em tempo real.
 
 ## Funcionalidades
 
