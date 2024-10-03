@@ -48,6 +48,7 @@ A aplicação utiliza a API OpenWeather para obter dados meteorológicos em temp
 - Exibição da temperatura atual, condições do tempo e previsão para os próximos 5 dias.
   
 - Exibição de ícones meteorológicos baseados nas condições do tempo.
+  
 - Responsividade para diferentes dispositivos.
 
 ## Explicação
