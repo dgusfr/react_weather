@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import {
-  getWeatherByCity,
-  getForecastByCity,
-} from "../../services/weatherService";
+import { getForecastByCity } from "../../services/weatherService";
 import Loader from "../Loader/Loader";
 import styles from "./WeatherApp.module.css";
 
@@ -24,7 +21,6 @@ function WeatherApp() {
     setForecastData(null);
 
     try {
-      const weather = await getWeatherByCity(city);
       const forecast = await getForecastByCity(city);
 
       const filteredForecast = forecast.list.filter((forecastItem) => {
