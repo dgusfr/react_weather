@@ -33,24 +33,19 @@ A previsão é baseada em uma cidade específica, utilizando a API da OpenWeathe
 
 ## Status
 
-![Em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=RED&style=for-the-badge)
-
-<!-- ![Concluído](http://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=GREEN&style=for-the-badge) -->
+![Concluído](http://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=GREEN&style=for-the-badge)
 
 ## Descrição
 
-Este projeto é uma aplicação de previsão do tempo que permite ao usuário pesquisar o clima de qualquer cidade e obter as previsões dos próximos dias. 
+Este projeto é uma aplicação de previsão do tempo que permite ao usuário pesquisar o clima de qualquer cidade e obter as previsões dos próximos dias.
 
 A aplicação utiliza a API OpenWeather para obter dados meteorológicos em tempo real.
 
 ## Funcionalidades
 
 - Busca de previsão do tempo para uma cidade específica.
-  
 - Exibição da temperatura atual, condições do tempo e previsão para os próximos 5 dias.
-  
 - Exibição de ícones meteorológicos baseados nas condições do tempo.
-  
 - Responsividade para diferentes dispositivos.
 
 ## Explicação
@@ -88,7 +83,7 @@ export default WeatherApp;
 
 # **Sobre o React Weather**
 
-O usuário, ao acessar a nossa aplicação, é direcionado para a página Home. Nesta página, é renderizado um card onde ele pode digitar o nome da cidade para a qual deseja obter a previsão do tempo. 
+O usuário, ao acessar a nossa aplicação, é direcionado para a página Home. Nesta página, é renderizado um card onde ele pode digitar o nome da cidade para a qual deseja obter a previsão do tempo.
 
 Ao clicar no botão "Buscar", as informações sobre o clima atual da cidade, bem como a previsão para os próximos dias, são apresentadas ao usuário de forma clara e organizada.
 
