@@ -20,14 +20,12 @@ function WeatherApp() {
 
     setLoading(true);
     setError(null);
-    setWeatherData(null);
+
     setForecastData(null);
 
     try {
       const weather = await getWeatherByCity(city);
       const forecast = await getForecastByCity(city);
-
-      setWeatherData(weather);
 
       const filteredForecast = forecast.list.filter((forecastItem) => {
         return forecastItem.dt_txt.includes("12:00:00");
