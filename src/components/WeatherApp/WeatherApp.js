@@ -8,7 +8,6 @@ import styles from "./WeatherApp.module.css";
 
 function WeatherApp() {
   const [city, setCity] = useState("");
-  const [weatherData, setWeatherData] = useState(null);
   const [forecastData, setForecastData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
