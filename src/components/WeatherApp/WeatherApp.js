@@ -5,6 +5,7 @@ import {
 } from "../../services/weatherService";
 import Loader from "../Loader/Loader";
 import styles from "./WeatherApp.module.css";
+import backgroundImage from "../../img/background.jpg";
 
 function WeatherApp() {
   const [city, setCity] = useState("");
@@ -76,7 +77,10 @@ function WeatherApp() {
   };
 
   return (
-    <div className={styles.bory}>
+    <div
+      className={styles.body}
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
       {" "}
       <div className={styles.weatherCard}>
         <header>
