@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { getForecastByCity } from "../../services/weatherService";
 import Loader from "../Loader/Loader";
-import styles from "./WeatherApp.module.css";
+import styles from "./Tempo.module.css";
 
 function WeatherApp() {
   const [city, setCity] = useState("");
