@@ -13,13 +13,6 @@ function WeatherApp() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const calculateMinMaxTemp = (forecastList) => {
-    const temps = forecastList.map((item) => item.main.temp);
-    const tempMin = Math.min(...temps);
-    const tempMax = Math.max(...temps);
-    return { tempMin, tempMax };
-  };
-
   const fetchWeather = async () => {
     if (!city) {
       setError("Por favor, insira o nome de uma cidade.");
@@ -37,13 +30,11 @@ function WeatherApp() {
 
       setWeatherData(weather);
 
-      const { tempMin, tempMax } = calculateMinMaxTemp(forecast.list);
-
       const filteredForecast = forecast.list.filter((forecastItem) => {
         return forecastItem.dt_txt.includes("12:00:00");
       });
 
-      setForecastData({ filteredForecast, tempMin, tempMax });
+      setForecastData({ filteredForecast });
     } catch (error) {
       setError("Erro ao buscar a previsão.");
     } finally {
@@ -75,19 +66,23 @@ function WeatherApp() {
 
         {forecastData && (
           <div>
-            <h3>Temperatura mínima: {forecastData.tempMin}°C</h3>
-            <h3>Temperatura máxima: {forecastData.tempMax}°C</h3>
-            {forecastData.filteredForecast.map((forecast, index) => (
-              <div key={index} className={styles.forecastCard}>
-                <h3>
-                  {new Date(forecast.dt_txt).toLocaleDateString("pt-BR", {
-                    weekday: "long",
-                  })}
-                </h3>
-                <p>{forecast.main.temp}°C</p>
-                <p>{forecast.weather[0].description}</p>
-              </div>
-            ))}
+            <div className={styles.forecastContainer}>
+              {forecastData.filteredForecast.map((forecast, index) => (
+                <div key={index} className={styles.forecastCard}>
+                  <h3>
+                    {new Date(forecast.dt_txt).toLocaleDateString("pt-BR", {
+                      weekday: "long",
+                    })}
+                  </h3>
+                  <img
+                    src={`http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png`}
+                    alt={forecast.weather[0].description}
+                  />
+                  <p>{forecast.main.temp}°C</p>
+                  <p>{forecast.weather[0].description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </div>

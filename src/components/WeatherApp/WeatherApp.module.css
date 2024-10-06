@@ -14,7 +14,7 @@
 
 .weatherCard {
   max-width: 800px;
-  width: 90%; /* Ajuste para manter responsividade */
+  width: 90%;
   padding: 30px;
   background-color: rgba(255, 255, 255, 0.85);
   border-radius: 10px;
@@ -34,7 +34,7 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
-  align-self: center; /* Centraliza o botão no card */
+  align-self: center;
 }
 
 .button:hover {
@@ -49,34 +49,29 @@
   font-size: 16px;
 }
 
+.forecastContainer {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
 .forecastCard {
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
   padding: 15px;
   text-align: center;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-  width: 18%;
-}
-
-.forecastCard:hover {
-  transform: scale(1.05);
-}
-
-.forecastContainer {
+  width: 150px;
   display: flex;
-  justify-content: space-around;
-  gap: 10px;
-  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .forecastCard h3 {
   margin: 5px 0;
   font-size: 16px;
-}
-
-.forecast h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
 }
 
 .forecastCard img {
@@ -87,7 +82,6 @@
 .forecastCard p {
   margin: 7px 0;
   font-size: 14px;
-  animation: fadeIn 0.5s ease-in-out;
   font-family: "Roboto", sans-serif;
 }
 
@@ -95,13 +89,10 @@
   margin-top: 30px;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.error {
+  color: #ff0000;
+  font-weight: bold;
+  margin-top: 10px;
 }
 
 @media (max-width: 768px) {
@@ -114,10 +105,4 @@
     width: 100%;
     margin-bottom: 10px;
   }
-}
-
-.error {
-  color: #ff0000;
-  font-weight: bold;
-  margin-top: 10px;
 }
