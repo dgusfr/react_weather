@@ -64,8 +64,7 @@
 
 .forecastContainer {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap; /* Permite que os cards se ajustem em telas menores */
+  justify-content: space-around;
   gap: 10px;
   width: 100%;
 }
