@@ -8,6 +8,7 @@ function AppRoutes() {
       <Routes>
         <Route path="/" element={<WeatherApp />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
